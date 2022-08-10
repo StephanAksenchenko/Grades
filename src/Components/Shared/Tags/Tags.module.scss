@@ -1,0 +1,10 @@
+.list {
+  list-style-type: none;
+  display: flex;
+  gap: 12px;
+}
+
+.item {
+  background-color: silver;
+  padding: 4px 16px;
+}
