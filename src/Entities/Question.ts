@@ -1,4 +1,11 @@
-type Tag = "react" | "props" | "jsx" | "junior" | "junior+" | "junior++";
+type Tag =
+  | "react"
+  | "props"
+  | "jsx"
+  | "junior"
+  | "junior+"
+  | "junior++"
+  | "context";
 
 type QuestionAnswer = {
   id: number;

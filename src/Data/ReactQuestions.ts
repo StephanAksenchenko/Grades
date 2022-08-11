@@ -230,18 +230,481 @@ export const questions: Question[] = [
     },
     rightAnswer: false,
   },
-  // {
-  //   id: 14,
-  //   type: "multiple",
-  //   tags: ["react", "junior"],
-  //   body: "Выберете правильное(ые) утверждение:",
-  //   availableAnswer: [
-  //     {
-  //       id: 1,
-  //       content:
-  //         "Чтобы создать компонент нужно обязательно использовать функции",
-  //     },
-
-  //   ],
-  // },
+  {
+    id: 14,
+    type: "single",
+    tags: ["react", "junior"],
+    body: "Как встроить JS выражение в JSX? (expression - любое JS выражение)",
+    availableAnswer: [
+      { id: 1, content: "<h1>{expression}</h1>" },
+      { id: 2, content: "<h1>expression</h1>" },
+      { id: 3, content: '<h1>"expression"</h1>' },
+      { id: 4, content: "<h1>(expression)</h1>" },
+    ],
+    rightAnswer: 1,
+  },
+  {
+    id: 15,
+    type: "boolean",
+    tags: ["react", "jsx", "junior"],
+    body: "Является ли JSX элемент JS выражением?",
+    rightAnswer: true,
+  },
+  {
+    id: 16,
+    type: "single",
+    tags: ["junior", "react"],
+    body: {
+      type: "code snippet",
+      content:
+        "/**\n * Какое значение будет у переменной counter после\n * трех нажатий кнопки “Увеличить”? (см. приведенный фрагмент кода):\n */\n\nconst Button = ({ counter, children }) => {\n  const handler = () => {\n    counter = counter + 1;\n  };\n  return <button onClick={handler}>{children}</button>;\n};\n\nexport default function App() {\n  const counter = 0;\n  return (\n    <div>\n      <Button counter={counter}>Увеличить</Button>\n      <p>{counter}</p>\n    </div>\n  );\n}\n",
+    },
+    availableAnswer: [
+      { id: 1, content: "3" },
+      { id: 2, content: "0" },
+      { id: 3, content: "4" },
+      { id: 4, content: "Код написан некорректно и вызовет исключение" },
+    ],
+    rightAnswer: 2,
+  },
+  {
+    id: 17,
+    type: "single",
+    tags: ["junior", "react"],
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * Что будет выведено в консоль в итоге его работы?\n */\nconst Button = ({ borderless, children }) => {\n  if (borderless) {\n    console.log("borderless");\n  } else {\n    console.log("!borderless");\n  }\n  return <button>{children}</button>;\n};\n\nexport default function App() {\n  return <Button borderless>Button</Button>;\n}\n',
+    },
+    availableAnswer: [
+      { id: 1, content: "!borderless" },
+      { id: 2, content: "borderless borderless" },
+      { id: 3, content: "borderless" },
+      { id: 4, content: "borderless, !borderless" },
+    ],
+    rightAnswer: 3,
+  },
+  {
+    id: 18,
+    type: "single",
+    tags: ["react", "junior"],
+    body: "Что такое состояние (state) компонента?",
+    availableAnswer: [
+      {
+        id: 1,
+        content:
+          "Некое значение (свойство компонента) которое сохраняется между рендерами компонента",
+      },
+      {
+        id: 2,
+        content: "Качество кода внутри компонента",
+      },
+      {
+        id: 3,
+        content: "Степень готовности компонента в процессе разработки",
+      },
+    ],
+    rightAnswer: 1,
+  },
+  {
+    id: 19,
+    type: "single",
+    tags: ["react", "junior"],
+    body: "Как объявить переменную состояния isCollapsed и проинициализировать ее значением “ложь”? (В контексте React Hooks API)",
+    availableAnswer: [
+      {
+        id: 1,
+        content: "const [isCollapsed, setIsCollapsed] = useState(false);",
+      },
+      {
+        id: 2,
+        content: "const isCollapsed = useRef(false);",
+      },
+      {
+        id: 3,
+        content: "const isCollapsed = false;",
+      },
+      { id: 4, content: "const isCollapsed = setState(false)" },
+    ],
+    rightAnswer: 1,
+  },
+  {
+    id: 20,
+    type: "single",
+    tags: ["react", "junior"],
+    body: {
+      type: "code snippet",
+      content:
+        "/**\n * Как создать несколько состояний в компоненте?\n */\n\n  //вариант 1\n  const [state1, setState1] = useState(1);\n  const [state2, setState2] = useState(2);\n\n  //вариант 2\n  const state = { state1: 1, state2: state2 };\n\n  //вариант 3\n  useState({ state1: 1, state2: 2 });\n\n  //вариант 4\n  setState1({ state1: 1, state2: 2 });",
+    },
+    availableAnswer: [
+      {
+        id: 1,
+        content: "вариант 1",
+      },
+      {
+        id: 2,
+        content: "вариант 2",
+      },
+      {
+        id: 3,
+        content: "вариант 3",
+      },
+      {
+        id: 4,
+        content: "вариант 4",
+      },
+    ],
+    rightAnswer: 1,
+  },
+  {
+    id: 21,
+    type: "single",
+    tags: ["react", "junior"],
+    body: "Что возвращает функция useState()?",
+    availableAnswer: [
+      { id: 1, content: "React Hook для создания переменной состояния" },
+      { id: 2, content: "Переменную состояния и функцию для ее очистки" },
+      { id: 3, content: "Эта функция не возвращает ничего" },
+      {
+        id: 4,
+        content:
+          "Кортеж (коллекцию) содержащий переменную состояния и функцию для ее обновления",
+      },
+    ],
+    rightAnswer: 4,
+  },
+  {
+    id: 22,
+    type: "single",
+    tags: ["react", "junior"],
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * Основываясь на приведенном фрагменте кода\n * ответьте - как в обработчике события изменить\n * значение переменной состояния, чтобы при вводе\n * в поле сообщение об ошибке исчезало?\n */\nconst MyComponent = () => {\n  const [isError, setIsError] = useState(true);\n  return (\n    <div>\n      <input\n        // Обработчик изменения поля\n        onChange={() => {}}\n      ></input>\n      {isError && <p className="errorMessage">This field can not be empty!</p>}\n    </div>\n  );\n};\n',
+    },
+    availableAnswer: [
+      { id: 1, content: "isError = false;" },
+      { id: 2, content: "isError = useState(false);" },
+      { id: 3, content: "setIsError(false);" },
+      { id: 4, content: "useState((isError) => isError = false);" },
+    ],
+    rightAnswer: 3,
+  },
+  {
+    id: 23,
+    type: "multiple",
+    tags: ["react", "junior"],
+    body: "Какие аргументы принимает функция useState()? (Возможно, более одного ответа верные)",
+    availableAnswer: [
+      { id: 1, content: "Функцию, возвращающую начальное состояние" },
+      {
+        id: 2,
+        content:
+          "Функция не принимает никаких аргументов и служит лишь для объявления переменной",
+      },
+      {
+        id: 3,
+        content: "1) Начальное состояние 2) объект конфигурации;",
+      },
+      { id: 4, content: "Начальное состояние" },
+    ],
+    rightAnswer: [1, 4],
+  },
+  {
+    id: 24,
+    type: "multiple",
+    tags: ["react", "junior"],
+    body: "Какие аргументы принимает функция-сеттер переменной состояния? (Возможно, более одного ответа верные)",
+    availableAnswer: [
+      { id: 1, content: "1) старое состояние; 2) новое состояние" },
+      { id: 2, content: "функцию, возвращающую новое состояние" },
+      { id: 3, content: "1) Имя переменной 2) новое значение" },
+      { id: 4, content: "новое значение" },
+    ],
+    rightAnswer: [2, 4],
+  },
+  {
+    id: 25,
+    type: "single",
+    tags: ["react", "junior"],
+    body: "Если функция обновления возвращает такой же результат как и до обновления, то…",
+    availableAnswer: [
+      { id: 1, content: "React пропустит этот рендер" },
+      { id: 2, content: "React “выбросит” исключение" },
+      { id: 3, content: "Рендер пройдет в обычном режиме" },
+      { id: 4, content: "Ничто из перечисленного не верно." },
+    ],
+    rightAnswer: 1,
+  },
+  {
+    id: 26,
+    type: "single",
+    tags: ["react", "junior"],
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * По данному фрагменту кода установите что именно будет\n * отрисовано на странице после X нажатий на кнопку “Run”?\n */\nfunction CountWithoutEffect() {\n  const [counter, setCounter] = useState(0);\n  const [doubleCounter, setDoubleCounter] = useState(counter * 2);\n\n  const handleCount = () => {\n    setCounter(counter + 1);\n    setDoubleCounter(counter * 2);\n  };\n  return (\n    <div className="App">\n      <div>{counter}</div>\n      <div>{doubleCounter}</div>\n      <button onClick={handleCount}>Run</button>\n    </div>\n  );\n}',
+    },
+    availableAnswer: [
+      { id: 1, content: "два значения: 1) X 2) (X - 1) * 2" },
+      { id: 2, content: "одно значение: X + 1" },
+      { id: 3, content: "два значения: 1) X + 1 2) X * 2" },
+      {
+        id: 4,
+        content:
+          "код написан некорректно и отрисовка не может быть произведена",
+      },
+    ],
+    rightAnswer: 3,
+  },
+  {
+    id: 27,
+    type: "single",
+    tags: ["react", "junior"],
+    body: {
+      type: "code snippet",
+      content:
+        "/**\n * Как получить доступ к значению состояния на предыдущем рендере?\n */\n\n// Вариант 1\nsetState((state, index) => {\nreturn state[index - 1].value;\n});\n\n// Вариант 2\nsetState((old) => {\nreturn old;\n});\n\n// Вариант 3\nsetState((value) => {\nreturn value.old;\n});\n\n// Вариант 4\nusePreviousState(state);",
+    },
+    availableAnswer: [
+      { id: 1, content: "Вариант 1" },
+      { id: 2, content: "Вариант 2" },
+      { id: 3, content: "Вариант 3" },
+      { id: 4, content: "Вариант 4" },
+    ],
+    rightAnswer: 2,
+  },
+  {
+    id: 28,
+    type: "single",
+    tags: ["react", "junior"],
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * Добавьте обработчик удаления продукта.\n * Для наглядности приведен следующий код:\n */\nfunction App() {\n  const products = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }];\n  const handleRemove = () => {};\n  return (\n    <div className="App">\n      {products.map((product) => {\n        return <button key={product.id}>Удалить #{product.id}</button>;\n      })}\n    </div>\n  );\n}',
+    },
+    availableAnswer: [
+      {
+        id: 1,
+        content: "document.querySelector('#button').click = handleRemove;",
+      },
+      {
+        id: 2,
+        content:
+          "<button onClick={handleRemove}>Удалить #{product.id}</button>",
+      },
+      {
+        id: 3,
+        content:
+          "<button onClick=”handleRemove()”>Удалить #{product.id}</button>",
+      },
+    ],
+    rightAnswer: 2,
+  },
+  {
+    id: 29,
+    type: "single",
+    tags: ["react", "junior"],
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * Как предотвратить вызов обработчика события по умолчанию в рамках React?\n * Опирайтесь на код предоставленный ниже для наглядности:\n */\nexport default function App() {\n  const handleSubmit = (e) => {};\n  return (\n    <div className="wrapper">\n      <h1>Personal Info</h1>\n      <form onSubmit={handleSubmit}>\n        <fieldset>\n          <label>\n            <p>Given Name</p>\n            <input name="name" />\n          </label>\n          <label>\n            <p>Family Name</p>\n            <input name="famName" />\n          </label>\n        </fieldset>\n        <button type="submit">Save</button>\n      </form>\n    </div>\n  );\n}\n',
+    },
+    availableAnswer: [
+      { id: 1, content: "const handleSubmit = (e) =>  false;" },
+      { id: 2, content: "const handleSubmit = (e) => { e.preventDefault();};" },
+      { id: 3, content: "const handleSubmit = (e) => {};" },
+    ],
+    rightAnswer: 2,
+  },
+  {
+    id: 30,
+    type: "single",
+    tags: ["react", "junior"],
+    body: {
+      type: "code snippet",
+      content:
+        "/**\n * Основываясь на приведенном фрагменте определите,\n * что именно будет отрисовано в браузере?\n */\nfunction App() {\n  const messages = [];\n  return (\n    <div>\n      {messages.length && (\n        <>\n          <p>Your messages: </p>\n          {messages.map((item, i) => (\n            <p key={i}>{item}</p>\n          ))}\n        </>\n      )}\n    </div>\n  );\n}",
+    },
+    availableAnswer: [
+      {
+        id: 1,
+        content: "Этот код написан некорректно и приведет к ошибке React",
+      },
+      {
+        id: 2,
+        content: "Ничего (пустая страница)",
+      },
+      {
+        id: 3,
+        content: "[]",
+      },
+      {
+        id: 4,
+        content: "0",
+      },
+    ],
+    rightAnswer: 4,
+  },
+  {
+    id: 31,
+    type: "single",
+    tags: ["react", "junior"],
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * Отмените отрисовку компонента Warning внутри него согласно условию condition.\n * Для наглядности приведен следующий код:\n */\nconst Warning = ({ isShown, children }) => {\n  return <div className="warning">{children}</div>;\n};\n\nfunction App() {\n  const warning = "Warning!";\n  const condition = true;\n  return (\n    <div className="wrapper">\n      <Warning isShown={condition}>{warning}</Warning>\n    </div>\n  );\n}\n',
+    },
+    availableAnswer: [
+      { id: 1, content: "if (!isShown) return ‘’;" },
+      { id: 2, content: "if (isShown) return ‘’;" },
+      { id: 3, content: "return null;" },
+      { id: 4, content: "if (!isShown) return null;" },
+    ],
+    rightAnswer: 4,
+  },
+  {
+    id: 32,
+    type: "single",
+    tags: ["react", "junior"],
+    body: "Какой атрибут каждого из элементов коллекции при ее рендере используется React для определения, какие элементы были изменены, добавлены или удалены.",
+    availableAnswer: [
+      { id: 1, content: "key" },
+      { id: 2, content: "id" },
+      { id: 3, content: "uniqueId" },
+      { id: 4, content: "index" },
+    ],
+    rightAnswer: 1,
+  },
+  {
+    id: 33,
+    type: "single",
+    tags: ["react", "junior"],
+    body: "Необходимое условие для значения атрибута ключа для элемента React это …",
+    availableAnswer: [
+      {
+        id: 1,
+        content: "Уникальность в рамках компонента",
+      },
+      {
+        id: 2,
+        content: "Уникальность в рамках приложения",
+      },
+      {
+        id: 3,
+        content: "Уникальность в рамках конкретной коллекции элементов",
+      },
+      {
+        id: 4,
+        content: "Уникальность в рамках элемента HTML",
+      },
+    ],
+    rightAnswer: 3,
+  },
+  {
+    id: 34,
+    type: "single",
+    tags: ["react", "junior"],
+    body: "При извлечении компонента-члена коллекции следует его ключ… ",
+    availableAnswer: [
+      {
+        id: 1,
+        content:
+          "Перенести его в качестве пропса на новый компонент в том месте, где он встраивается в JSX",
+      },
+      {
+        id: 2,
+        content: "Перенести вместе с нативным html элементом в новый компонент",
+      },
+      {
+        id: 3,
+        content:
+          "Перенести его в качестве атрибута на новый компонент в том месте, где он встраивается в JSX",
+      },
+      {
+        id: 4,
+        content: "Смысл использования key исчезает с извлечением компонента",
+      },
+    ],
+    rightAnswer: 3,
+  },
+  {
+    id: 35,
+    type: "multiple",
+    tags: ["react", "junior"],
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * Какие шаги из перечисленных необходимы для создания управляемого поля name\n */\nfunction App() {\n  return (\n    <div className="wrapper">\n      <form>\n        <input name="name" />\n      </form>\n    </div>\n  );\n}\n',
+    },
+    availableAnswer: [
+      { id: 1, content: "const [name, setName] = useState();" },
+      { id: 2, content: "const handleSetName = (name) => {setName(name)};" },
+      { id: 3, content: '<input name="name" value={name} />' },
+      { id: 4, content: '<input name="name" onSet={handleSetName} /> ' },
+    ],
+    rightAnswer: [1, 3],
+  },
+  {
+    id: 36,
+    type: "multiple",
+    tags: ["react", "context"],
+    body: "Выберите верное(ые) утверждения:",
+    availableAnswer: [
+      {
+        id: 1,
+        content:
+          "Контекст позволяет передавать данные через дерево компонентов без необходимости передавать пропсы на промежуточных уровнях",
+      },
+      {
+        id: 2,
+        content:
+          "Consumer — это React-компонент, который подписывается на изменения контекста ",
+      },
+      {
+        id: 3,
+        content:
+          "Когда React первый раз рендерит компонент, который подписан на контекст, компонент получит значение контекста переданного в React.createContext('значение по-умолчанию')",
+      },
+      {
+        id: 4,
+        content:
+          "Один Provider может быть связан с несколькими компонентами, потребляющими контекст",
+      },
+    ],
+    rightAnswer: [1, 2, 4],
+  },
+  {
+    id: 37,
+    type: "single",
+    tags: ["react", "context"],
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * Какое значение выведет React в span при первом рендере?\n */\n\nimport { createContext, useContext } from "react";\n\nconst Context = createContext("значение1");\n\nconst App = () => {\n  const ctx = useContext(Context);\n\n  return (\n    <Context.Provider value={"значение2"}>\n      <Context.Consumer>{(value) => <span>{value}</span>}</Context.Consumer>\n    </Context.Provider>\n  );\n};',
+    },
+    availableAnswer: [
+      { id: 1, content: "значение1" },
+      { id: 2, content: "значение2" },
+    ],
+    rightAnswer: 2,
+  },
+  {
+    id: 38,
+    type: "multiple",
+    tags: ["react", "context"],
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * Какие компоненты будут перерендериваться после изменения контекста?\n */\n\nimport { createContext, useContext, useState } from "react";\n\nconst Context = createContext({ name: "user" });\n\nconst App = () => {\n  const [name, setName] = useState("User");\n\n  return (\n    <Context.Provider value={{ name, setName }}>\n      <Welcome />\n      <UserGreeting />\n      <Login />\n    </Context.Provider>\n  );\n};\n\nconst Welcome = () => <h1>Welcome to our test</h1>;\n\nconst UserGreeting = () => {\n  const { name } = useContext(Context);\n\n  return <p>Hello, {name}</p>;\n};\n\nconst Login = () => {\n  const { setName } = useContext(Context);\n\n  const onClick = () => setName("Alex");\n\n  return <button onClick={onClick}>Login</button>;\n};',
+    },
+    availableAnswer: [
+      { id: 1, content: "App" },
+      { id: 2, content: "Welcome" },
+      { id: 3, content: "UserGreeting" },
+      { id: 4, content: "Login" },
+    ],
+    rightAnswer: [1, 2, 3, 4],
+  },
 ];

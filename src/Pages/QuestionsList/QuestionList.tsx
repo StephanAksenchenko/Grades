@@ -2,24 +2,21 @@ import BooleanQuestionReview from "Components/Questions/BooleanQuestionReview";
 import MultipleAnswerQuestionReview from "Components/Questions/MultipleAnswerQuestionReview";
 import SingleAnswerQuestionReview from "Components/Questions/SingleAnswerQuestionReview";
 import { questions } from "Data/ReactQuestions";
+import css from "./QuestionList.module.scss";
 
 const QuestionsListPage = () => {
   return (
-    <div>
-      <h1>Вопросы</h1>
+    <div className={css.root}>
+      <h1 className={css.h1}>Вопросы</h1>
 
       {questions.map((q) => {
-        if (q.type === "boolean") {
-          return <BooleanQuestionReview {...q} />;
-        }
-
-        if (q.type === "multiple") {
-          return <MultipleAnswerQuestionReview {...q} />;
-        }
-
-        if (q.type === "single") {
-          return <SingleAnswerQuestionReview {...q} />;
-        }
+        return (
+          <div key={q.id} className={css.card}>
+            {q.type === "boolean" && <BooleanQuestionReview {...q} />}
+            {q.type === "multiple" && <MultipleAnswerQuestionReview {...q} />}
+            {q.type === "single" && <SingleAnswerQuestionReview {...q} />}
+          </div>
+        );
       })}
     </div>
   );
