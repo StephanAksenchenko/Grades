@@ -16,6 +16,7 @@ const QuestionBody = ({ body }: QuestionBodyProps) => {
         {body.content}
       </SyntaxHighlighter>
     );
+    return null;
   }
 
   return null;

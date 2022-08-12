@@ -22,9 +22,9 @@ const SingleQuestionReview = ({
         ))}
       </ul>
       <QuestionRightAnswer>
-        <p>
+        <span>
           {availableAnswer.find((answer) => answer.id === rightAnswer)?.content}
-        </p>
+        </span>
       </QuestionRightAnswer>
     </div>
   );

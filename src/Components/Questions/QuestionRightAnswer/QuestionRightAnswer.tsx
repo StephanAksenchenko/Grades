@@ -9,7 +9,7 @@ const QuestionRightAnswer = ({ children }: QuestionRightAnswerProps) => {
   return (
     <div>
       <p>Правильный ответ:</p>
-      <p className={css.root}>{children}</p>
+      <div className={css.root}>{children}</div>
     </div>
   );
 };

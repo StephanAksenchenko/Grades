@@ -707,4 +707,158 @@ export const questions: Question[] = [
     ],
     rightAnswer: [1, 2, 3, 4],
   },
+  {
+    id: 39,
+    type: "single",
+    tags: ["react", "context"],
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * Какое значение будет выведено в span?\n */\nconst Context = createContext("value");\n\nconst App = () => {\n  return (\n    <Context.Provider value={"value1"}>\n      {(value) => (\n        <Context.Provider value={"value2"}>\n          <Context.Consumer>{(value) => <span>{value}</span>}</Context.Consumer>\n        </Context.Provider>\n      )}\n    </Context.Provider>\n  );\n};\n',
+    },
+    availableAnswer: [
+      { id: 1, content: "value" },
+      { id: 2, content: "value1" },
+      { id: 3, content: "value2" },
+      { id: 4, content: "Реакт вызовет ошибку" },
+    ],
+    rightAnswer: 4,
+  },
+  {
+    id: 40,
+    type: "single",
+    tags: ["react", "context"],
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * App отрисовывает два счётчика, у которых есть span,\n * для отображения значения счётчика и есть кнопка, увеличивающая значение счётчиа на один.\n * Если у каждого счётчика нажать один раз кнопку Increment, каковы будут значения счётчиков\n */\nconst Context = createContext("value");\n\nconst App = () => {\n  return (\n    <>\n      <Counter />\n      <Counter />\n    </>\n  );\n};\n\nconst Counter = () => {\n  const [state, setState] = useState(0);\n  const increment = () => setState(state + 1);\n\n  return (\n    <>\n      <Context.Provider value={{ state, setState }}>\n        <Context.Consumer>\n          {(value) => <span>{value.state}</span>}\n        </Context.Consumer>\n      </Context.Provider>\n      <button onClick={increment}>Increment</button>\n    </>\n  );\n};',
+    },
+    availableAnswer: [
+      {
+        id: 1,
+        content:
+          "Значение каждого счётчика будет 2, так как используется один и тот же, контекст",
+      },
+      {
+        id: 2,
+        content:
+          "Значение каждого счётчика будет 1, так как у них разные провайдеры",
+      },
+      {
+        id: 3,
+        content: "Будет выведена ошибка, так нельзя использовать контекст",
+      },
+      {
+        id: 4,
+        content:
+          "Будет выведено значение 'value' так как такое использование контекста вызовет ошибку и будет показано default значение",
+      },
+    ],
+    rightAnswer: 2,
+  },
+  {
+    id: 41,
+    type: "multiple",
+    tags: ["react", "context"],
+    body: "Выберите верное(ые) утверждение:",
+    availableAnswer: [
+      {
+        id: 1,
+        content:
+          "Контекст использует сравнение по ссылкам, чтобы определить, когда запускать последующий рендер",
+      },
+      {
+        id: 2,
+        content:
+          "Объекту Context можно задать строковое свойство displayName. React DevTools использует это свойство при отображении названии контекста",
+      },
+    ],
+    rightAnswer: [1, 2],
+  },
+  {
+    id: 42,
+    type: "single",
+    tags: ["react", "fragment"],
+    body: "Выберите неверное утверждение:",
+    availableAnswer: [
+      {
+        id: 1,
+        content:
+          "Фрагменты - компоненты, позволяющие возвращать несколько элементов из компонентов",
+      },
+      {
+        id: 2,
+        content:
+          "В компонент <React.Fragment> можно передать только один единственный атрибут key",
+      },
+      {
+        id: 3,
+        content:
+          "Сокращённой формой <React.Fragment></React.Fragment> является <></>",
+      },
+      {
+        id: 4,
+        content:
+          "<React.Fragment></React.Fragment> и <></> абсолютно идентичны",
+      },
+    ],
+    rightAnswer: 4,
+  },
+  {
+    id: 43,
+    type: "multiple",
+    tags: ["react", "hooks"],
+    body: "Выберите верное(ые) утверждения:",
+    availableAnswer: [
+      {
+        id: 1,
+        content:
+          "С помощью хука эффекта useEffect вы можете выполнять побочные эффекты из функционального компонента.",
+      },
+      {
+        id: 2,
+        content:
+          "React выполняет эффект, до того как произошли изменения в DOM, чтобы не блокировать работу браузера",
+      },
+      {
+        id: 3,
+        content:
+          "useEffect(f) При необходимости из функции f можно вернуть другую функцию,которая будет проверять нужно ли запустить эффект",
+      },
+      {
+        id: 4,
+        content:
+          "useEffect(f, [args]) Чтобы внутри функции f иметь доступ к нужным переменным компонента, их необходимо передать вместе с функции вторым параметром (в массиве)",
+      },
+    ],
+    rightAnswer: [1],
+  },
+  {
+    id: 44,
+    type: "single",
+    tags: ["react", "hooks"],
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * Что выведется в консоль?\n */\nconst App = () => {\n  console.log("begin");\n  useEffect(() => console.log("useEffect"));\n  useLayoutEffect(() => console.log("useLayoutEffect"));\n\n  console.log("end");\n  return <div>Hello</div>;\n};',
+    },
+    availableAnswer: [
+      { id: 1, content: "begin -> useLayoutEffect -> useEffect -> end" },
+      { id: 2, content: "begin -> useEffect -> useLayoutEffect -> end" },
+      { id: 3, content: "useLayoutEffect -> begin -> end -> useEffect" },
+      { id: 4, content: "begin -> end -> useLayoutEffect -> useEffect" },
+    ],
+    rightAnswer: 4,
+  },
+  {
+    id: 45,
+    type: "boolean",
+    tags: ["react"],
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * Есть ли в данном примере проблемы с утечкой памяти?\n */\nconst App = () => {\n  const onScroll = useCallback(() => console.log(window.scrollY), []);\n\n  useEffect(() => {\n    window.addEventListener("scroll", onScroll);\n  }, [onScroll]);\n\n  return <div />;\n};',
+    },
+    rightAnswer: false,
+  },
 ];

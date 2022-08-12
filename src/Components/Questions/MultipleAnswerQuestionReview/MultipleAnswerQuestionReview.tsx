@@ -29,7 +29,7 @@ const MultipleAnswerQuestionReview = ({
               (answer) => answer.id === answerId
             );
 
-            return answer && <li>{answer.content}</li>;
+            return answer && <li key={id}>{answer.content}</li>;
           })}
         </ul>
       </QuestionRightAnswer>

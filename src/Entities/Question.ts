@@ -5,7 +5,9 @@ type Tag =
   | "junior"
   | "junior+"
   | "junior++"
-  | "context";
+  | "context"
+  | "fragment"
+  | "hooks";
 
 type QuestionAnswer = {
   id: number;
