@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect } from "react";
 
 /**
  * Есть ли в данном примере проблемы с утечкой памяти?
