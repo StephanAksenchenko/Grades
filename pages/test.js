@@ -1,3 +1,3 @@
-import App from "../src/Examples/Hooks/useEffect/Example1";
+import App from "../src/Examples/Refs/Example";
 
 export default App;

@@ -861,4 +861,62 @@ export const questions: Question[] = [
     },
     rightAnswer: false,
   },
+  {
+    id: 46,
+    type: "multiple",
+    tags: ["react"],
+    body: "Как получить значение контекста с помощью хука useContext",
+    availableAnswer: [
+      { id: 1, content: "useContext(MyContext)" },
+      { id: 2, content: "useContext(MyContext.Consumer)" },
+      { id: 3, content: "useContext(MyContext.Provider)" },
+    ],
+    rightAnswer: [1],
+  },
+  {
+    id: 47,
+    type: "multiple",
+    tags: ["react"],
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * Какие компоненты будут перерендериваться, если нажать на IncreaseButton или IncreaseButtonMemo?\n */\nconst Context = createContext({});\n\nconst App = () => {\n  const [state, setState] = useState(0);\n\n  return (\n    <Wrapper>\n      <Context.Provider value={{ state, setState }}>\n        <Info />\n        <InfoMemo />\n        <IncreaseButton />\n        <IncreaseButtonMemo />\n      </Context.Provider>\n    </Wrapper>\n  );\n};\n\nconst IncreaseButton = () => {\n  const { state, setState } = useContext(Context);\n  const increase = () => setState(state + 1);\n\n  return <button onClick={increase}>Increase</button>;\n};\n\nconst IncreaseButtonMemo = React.memo(IncreaseButton);\n\nconst Info = () => {\n  return <p>Click the button</p>;\n};\n\nconst InfoMemo = React.memo(Info);\n\nconst Wrapper = ({ children }) => <div className="wrapper">{children}</div>;\n',
+    },
+    availableAnswer: [
+      { id: 1, content: "Wrapper" },
+      { id: 2, content: "Info" },
+      { id: 3, content: "InfoMemo" },
+      { id: 4, content: "IncreaseButton" },
+      { id: 5, content: "IncreaseButtonMemo" },
+    ],
+    rightAnswer: [1, 2, 4, 5],
+  },
+  {
+    id: 48,
+    type: "single",
+    tags: ["react"],
+    body: {
+      type: "code snippet",
+      content:
+        "/**\n * Имеет ли смысл использовать MainMemo \n * (Какие компоненты будут перерендериваться при нажатии на кнопку Increase?\n */\nconst Context = createContext({});\n\nconst App = () => {\n  const [count, setCount] = useState(0);\n\n  return (\n    <div>\n      <Context.Provider value={{ count, setCount }}>\n        <MainMemo />\n      </Context.Provider>\n    </div>\n  );\n};\n\nconst Main = () => {\n  return <Counter />;\n};\n\nconst MainMemo = React.memo(Main);\n\nconst Counter = () => {\n  const { count, setCount } = useContext(Context);\n\n  return (\n    <>\n      <div>{count}</div>\n      <button onClick={() => setCount(count + 1)}>Increase</button>\n    </>\n  );\n};",
+    },
+    availableAnswer: [
+      {
+        id: 1,
+        content:
+          "Мемоизация Main приведёт к ошибке, не правильному отображению счётчика, так как MainMemo не будет перерендериваться",
+      },
+      {
+        id: 2,
+        content:
+          "Мемоизированный Main всё равно будет перерендериваться, так как один из его потомков зависит от значения контекста",
+      },
+      {
+        id: 3,
+        content:
+          "Мемоизированный Main не будет перерендериваться, но потомки будут",
+      },
+    ],
+    rightAnswer: 3,
+  },
 ];
