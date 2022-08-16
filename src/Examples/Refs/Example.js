@@ -1,25 +1,16 @@
-import {
-  forwardRef,
-  useState,
-  useRef,
-  useImperativeHandle,
-  useEffect,
-} from "react";
+import { forwardRef, useState, useRef, useImperativeHandle } from "react";
 
+/**
+ * Найдите ошибку в данном коде?
+ */
 const App = () => {
   const ref = useRef();
-
-  const logging = () => {
-    ref.current.log();
-    ref.current.increase();
-  };
-
-  useEffect(() => console.log(ref));
+  const increase = () => ref.current.increase();
 
   return (
     <>
       <CounterForwardRef ref={ref} />
-      <button onClick={logging}>Click to log</button>
+      <button onClick={increase}>Increase</button>
     </>
   );
 };
@@ -31,7 +22,6 @@ const Counter = (props, ref) => {
   useImperativeHandle(
     ref,
     () => ({
-      log: () => console.log("hello"),
       increase: () => setCounter(counter + 1),
     }),
     [counter]

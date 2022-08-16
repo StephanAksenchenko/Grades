@@ -919,4 +919,121 @@ export const questions: Question[] = [
     ],
     rightAnswer: 3,
   },
+  {
+    id: 49,
+    type: "single",
+    tags: ["react"],
+    body: {
+      type: "code snippet",
+      content:
+        "/**\n * Найдите ошибку в данном коде?\n */\nconst App = () => {\n  const ref = useRef();\n  const increase = () => ref.current.increase();\n\n  return (\n    <>\n      <CounterForwardRef ref={ref} />\n      <button onClick={increase}>Increase</button>\n    </>\n  );\n};\n\nconst Counter = (props, ref) => {\n  const counterRef = useRef();\n  const [counter, setCounter] = useState(0);\n\n  useImperativeHandle(\n    ref,\n    () => ({\n      increase: () => setCounter(counter + 1),\n    }),\n    [counter]\n  );\n\n  return <div ref={counterRef}>{counter}</div>;\n};\n\nconst CounterForwardRef = forwardRef(Counter);\n",
+    },
+    availableAnswer: [
+      {
+        id: 1,
+        content: "В хук useImperativeHandle нужно передавать counterRef",
+      },
+      {
+        id: 2,
+        content:
+          "В зависимости хука useImperativeHandle нужно передать setCounter",
+      },
+      {
+        id: 3,
+        content: "В функциональный компонент нельзя передавать ref",
+      },
+      {
+        id: 4,
+        content: "Данный код является рабочим",
+      },
+    ],
+    rightAnswer: 4,
+  },
+  {
+    id: 50,
+    type: "multiple",
+    tags: ["react"],
+    body: "Выберите правильное(ые) утверждения:",
+    availableAnswer: [
+      { id: 1, content: "Рефы дают возможность получить доступ к DOM-узлам" },
+      {
+        id: 2,
+        content:
+          "React присвоит DOM-элемент свойству current при монтировании компонента",
+      },
+      {
+        id: 3,
+        content:
+          "По умолчанию нельзя использовать атрибут ref с классовыми компонентами",
+      },
+      {
+        id: 4,
+        content:
+          "Если вам нужен реф на классовый компонент, можете воспользоваться forwardRef",
+      },
+    ],
+    rightAnswer: [1, 2],
+  },
+  {
+    id: 51,
+    type: "single",
+    tags: ["react"],
+    body: {
+      type: "code snippet",
+      content:
+        "/**\n * Какое значение выведет console.log(ref) при первом рендере?\n */\nconst App = () => {\n  const ref = useRef(null);\n  console.log(ref);\n\n  return <button ref={ref}>Click</button>;\n};",
+    },
+    availableAnswer: [
+      { id: 1, content: "null" },
+      { id: 2, content: "{current: null}" },
+      { id: 3, content: "{current: button}" },
+      { id: 4, content: "undefined" },
+    ],
+    rightAnswer: 2,
+  },
+  {
+    id: 52,
+    type: "multiple",
+    tags: ["react"],
+    body: "Выберите правильное(ые) утверждения:",
+    availableAnswer: [
+      {
+        id: 1,
+        content:
+          "Рендер-проп — функция, которая сообщает компоненту что необходимо рендерить",
+      },
+      {
+        id: 2,
+        content:
+          "Рендер-проп — компонент, который передаётся другому компоненту для рендера",
+      },
+      {
+        id: 3,
+        content:
+          "Компонент с рендер-пропом берёт функцию, которая возвращает React-элемент, и вызывает её вместо реализации собственного рендера",
+      },
+      {
+        id: 4,
+        content:
+          "Рендер-проп обязательно должен называться render, так как React особым образом обрабатывает данный проп",
+      },
+    ],
+    rightAnswer: [1, 3],
+  },
+  {
+    id: 53,
+    type: "multiple",
+    tags: ["react"],
+    body: {
+      type: "code snippet",
+      content:
+        "/**\n * Какие компоненты будут перерендериваться при нажатии кнопки Increase?\n */\nconst App = () => {\n  const [counter, setCounter] = useState(0);\n  const DataRender = useCallback((data) => <DataPreviewMemo data={data} />, []);\n\n  return (\n    <>\n      <DataProvider render={DataRender} />\n      <button onClick={() => setCounter(counter + 1)}>Increase</button>\n    </>\n  );\n};\n\nconst DataProvider = ({ render }) => {\n  const data = [1, 2, 3];\n  return render(data);\n};\n\nconst DataPreview = ({ data }) => (\n  <ul>\n    {data.map((item) => (\n      <li key={item}>{item}</li>\n    ))}\n  </ul>\n);\nconst DataPreviewMemo = memo(DataPreview);",
+    },
+    availableAnswer: [
+      { id: 1, content: "App" },
+      { id: 2, content: "DataProvider" },
+      { id: 3, content: "DataPreviewMemo" },
+    ],
+    rightAnswer: [1, 2, 3],
+  },
 ];
