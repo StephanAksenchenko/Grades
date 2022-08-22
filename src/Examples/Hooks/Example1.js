@@ -1,16 +1,46 @@
-function useRouter() {
+import { useEffect, useState } from "react";
+
+async function getData() {
   return {
-    path: "/",
+    id: 1,
+    title: "Juice",
+    description: "Tasty juice",
   };
 }
 
+/**
+ * Какая есть потенциальная проблема данного кода?
+ */
 const App = () => {
-  const onClick = () => {
-    const { path } = useRouter();
-    console.log(`Go to path ${path}`);
-  };
+  return <Component id={1} />;
+};
 
-  return <button onClick={onClick}>Go</button>;
+const Component = ({ id }) => {
+  if (!id) {
+    return null;
+  }
+
+  const [product, setProduct] = useState({
+    id: null,
+    title: "",
+    description: "",
+  });
+
+  useEffect(() => {
+    const getProduct = async () => {
+      const product = await getData("/product/id");
+      setProduct(product);
+    };
+
+    getProduct();
+  }, [id]);
+
+  return (
+    <>
+      <h1>{product.title}</h1>
+      <p>{product.description}</p>
+    </>
+  );
 };
 
 export default App;

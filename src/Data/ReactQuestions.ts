@@ -394,7 +394,7 @@ export const questions: Question[] = [
   {
     id: 23,
     type: "multiple",
-    tags: ["react", "junior", "hooks"],
+    tags: ["react", "junior+", "hooks"],
     body: "Какие аргументы принимает функция useState()? (Возможно, более одного ответа верные)",
     availableAnswer: [
       { id: 1, content: "Функцию, возвращающую начальное состояние" },
@@ -414,7 +414,7 @@ export const questions: Question[] = [
   {
     id: 24,
     type: "multiple",
-    tags: ["react", "junior", "hooks"],
+    tags: ["react", "junior+", "hooks"],
     body: "Какие аргументы принимает функция-сеттер переменной состояния? (Возможно, более одного ответа верные)",
     availableAnswer: [
       { id: 1, content: "1) старое состояние; 2) новое состояние" },
@@ -427,7 +427,7 @@ export const questions: Question[] = [
   {
     id: 25,
     type: "single",
-    tags: ["react", "junior", "hooks"],
+    tags: ["react", "middle", "hooks"],
     body: "Если функция обновления возвращает такой же результат как и до обновления, то…",
     availableAnswer: [
       { id: 1, content: "React пропустит этот рендер" },
@@ -461,7 +461,7 @@ export const questions: Question[] = [
   {
     id: 27,
     type: "single",
-    tags: ["react", "junior", "hooks"],
+    tags: ["react", "junior+", "hooks"],
     body: {
       type: "code snippet",
       content:
@@ -807,7 +807,7 @@ export const questions: Question[] = [
   {
     id: 43,
     type: "multiple",
-    tags: ["react", "hooks"],
+    tags: ["react", "hooks", "junior+"],
     body: "Выберите верное(ые) утверждения:",
     availableAnswer: [
       {
@@ -836,7 +836,7 @@ export const questions: Question[] = [
   {
     id: 44,
     type: "single",
-    tags: ["react", "hooks"],
+    tags: ["react", "hooks", "middle+"],
     body: {
       type: "code snippet",
       content:
@@ -864,7 +864,7 @@ export const questions: Question[] = [
   {
     id: 46,
     type: "multiple",
-    tags: ["react", "context", "hooks"],
+    tags: ["react", "context", "hooks", "junior"],
     body: "Как получить значение контекста с помощью хука useContext",
     availableAnswer: [
       { id: 1, content: "useContext(MyContext)" },
@@ -1067,7 +1067,7 @@ export const questions: Question[] = [
   {
     id: 55,
     type: "multiple",
-    tags: ["react", "hooks"],
+    tags: ["react", "hooks", "junior+"],
     body: "Выберите верное(ые) утверждения",
     availableAnswer: [
       {
@@ -1094,7 +1094,7 @@ export const questions: Question[] = [
   },
   {
     id: 56,
-    tags: ["react", "props"],
+    tags: ["react", "props", "junior"],
     type: "single",
     body: {
       type: "code snippet",
@@ -1124,7 +1124,7 @@ export const questions: Question[] = [
   {
     id: 57,
     type: "single",
-    tags: ["react", "props"],
+    tags: ["react", "props", "middle"],
     body: {
       type: "code snippet",
       content:
@@ -1157,7 +1157,7 @@ export const questions: Question[] = [
   {
     id: 59,
     type: "single",
-    tags: ["react", "props"],
+    tags: ["react", "props", "middle+"],
     body: {
       type: "code snippet",
       content:
@@ -1185,6 +1185,82 @@ export const questions: Question[] = [
       { id: 2, content: "[object Date]" },
       { id: 3, content: "Реакт выдаст исключение" },
       { id: 4, content: "Пустой div" },
+    ],
+    rightAnswer: 3,
+  },
+  {
+    id: 61,
+    type: "single",
+    tags: ["react", "props", "middle++"],
+    body: {
+      type: "code snippet",
+      content:
+        "/**\n * Что будет выведено на экран\n * после нажатия на кнопку Increase?\n */\nconst App = () => {\n  const counter = useRef(0);\n\n  return <Component counter={counter} />;\n};\n\nconst Component = ({ counter }) => {\n  const onClick = () => {\n    counter.current = counter.current + 1;\n  };\n\n  return (\n    <>\n      <div>{counter.current}</div>\n      <button onClick={onClick}>Increase</button>\n    </>\n  );\n};",
+    },
+    availableAnswer: [
+      { id: 1, content: "1" },
+      { id: 2, content: "0" },
+      {
+        id: 3,
+        content:
+          "React выдаст исключение, так как реф должен быть присвоен DOM узлу",
+      },
+      {
+        id: 4,
+        content:
+          "React выдаст исключение, так как нельзя напрямую изменять значение Ref",
+      },
+    ],
+    rightAnswer: 2,
+  },
+  {
+    id: 62,
+    type: "single",
+    tags: ["react", "props", "junior++"],
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * Какую фразу увидим на мониторе?\n */\nconst App = () => {\n  const props = {\n    title: "Hello world",\n    description: "This is awesome world",\n  };\n\n  return <Component props={props} />;\n};\n\nconst Component = ({ title }) => {\n  return <div>{title}</div>;\n};',
+    },
+    availableAnswer: [
+      { id: 1, content: "Hello world" },
+      { id: 2, content: "This is awesome world" },
+      { id: 3, content: "Пустой div" },
+      { id: 4, content: "[object Object]" },
+    ],
+    rightAnswer: 3,
+  },
+  {
+    id: 63,
+    type: "single",
+    tags: ["react", "props", "junior+"],
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * Что будет выведено на экран?\n */\nconst App = () => {\n  const person = {\n    name: "Bob",\n    age: 26,\n    position: "developer",\n    specialization: "frontend",\n    level: "middle",\n  };\n\n  return <Component level="senior" {...person} />;\n};\n\nconst Component = ({ name, level = "junior", specialization, position }) => {\n  return (\n    <h1>\n      {name} - {level} {specialization} {position}\n    </h1>\n  );\n};',
+    },
+    availableAnswer: [
+      { id: 1, content: "Bob - middle frontend developer" },
+      { id: 2, content: "Bob - junior frontend developer" },
+      { id: 3, content: "Bob - undefined frontend developer" },
+      { id: 4, content: "Bob - senior frontend developer" },
+    ],
+    rightAnswer: 1,
+  },
+  {
+    id: 64,
+    type: "single",
+    tags: ["react", "hooks", "junior++"],
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * Какая есть потенциальная проблема данного кода?\n */\nconst App = () => {\n  return <Component id={1} />;\n};\n\nconst Component = ({ id }) => {\n  if (!id) {\n    return null;\n  }\n\n  const [product, setProduct] = useState({\n    id: null,\n    title: "",\n    description: "",\n  });\n\n  useEffect(() => {\n    const getProduct = async () => {\n      const product = await getData("/product/id");\n      setProduct(product);\n    };\n\n    getProduct();\n  }, [id]);\n\n  return (\n    <>\n      <h1>{product.title}</h1>\n      <p>{product.description}</p>\n    </>\n  );\n};',
+    },
+    availableAnswer: [
+      { id: 1, content: "Нельзя возвращать null из компонента" },
+      { id: 2, content: "Нельзя вызывать хуки внутри вложенных функций" },
+      { id: 3, content: "Нельзя вызывать хуки не на верхнем уровне" },
+      { id: 4, content: "Нельзя вызывать хуки внутри обычных JS функций" },
     ],
     rightAnswer: 3,
   },

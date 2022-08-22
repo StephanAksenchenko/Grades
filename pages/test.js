@@ -1,3 +1,3 @@
-import App from "../src/Examples/Props/Example5";
+import App from "../src/Examples/Hooks/Example2";
 
 export default App;

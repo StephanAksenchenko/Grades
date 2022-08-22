@@ -1,16 +1,26 @@
+import { useRef } from "react";
+
 /**
- * Что выведится на экран?
+ * Что будет выведено на экран
+ * после нажатия на кнопку Increase?
  */
 const App = () => {
-  const text1 = "Hello";
-  const text2 = "World";
+  const counter = useRef(0);
 
-  // eslint-disable-next-line react/jsx-no-duplicate-props
-  return <Component text={text1} text={text2} />;
+  return <Component counter={counter} />;
 };
 
-const Component = ({ text }) => {
-  return <div>{text}</div>;
+const Component = ({ counter }) => {
+  const onClick = () => {
+    counter.current = counter.current + 1;
+  };
+
+  return (
+    <>
+      <div>{counter.current}</div>
+      <button onClick={onClick}>Increase</button>
+    </>
+  );
 };
 
 export default App;

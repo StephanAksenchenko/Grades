@@ -1,11 +1,17 @@
 /**
- * Что выведится на экран?
+ * Что будет выведено внутри Component?
  */
 const App = () => {
-  const date = new Date();
+  const props = {
+    title: "Hello world",
+    description: "This is awesome world",
+  };
 
-  //   return <div>{date}</div>; // расскоментировать
-  return null; // удалить
+  return <Component props={props} />;
+};
+
+const Component = ({ title }) => {
+  return <div>{title}</div>;
 };
 
 export default App;

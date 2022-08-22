@@ -1,15 +1,26 @@
-import { useEffect } from "react";
+import { useState } from "react";
 
-function pseudoHook() {
-  useEffect(() => {
-    console.log("hello");
-  }, []);
-}
-
+/**
+ * Какое будет значение после нажатия на кнопку Doublt increase
+ */
 const App = () => {
-  pseudoHook();
+  return <Counter />;
+};
 
-  return <h1>Hello</h1>;
+const Counter = () => {
+  const [count, setCount] = useState(0);
+
+  const doubleIncrease = () => {
+    setCount(count + 1);
+    setCount(count + 1);
+  };
+
+  return (
+    <div>
+      <div>{count}</div>
+      <button onClick={doubleIncrease}>Double increase</button>
+    </div>
+  );
 };
 
 export default App;

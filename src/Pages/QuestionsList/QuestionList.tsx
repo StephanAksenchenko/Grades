@@ -11,7 +11,7 @@ const QuestionsListPage = () => {
       <h1 className={css.h1}>Вопросы</h1>
 
       {questions
-        .filter((q) => q.tags.includes("props"))
+        .filter((q) => q.tags.includes("hooks"))
         .map((q) => {
           return (
             <div key={q.id} className={css.card}>
