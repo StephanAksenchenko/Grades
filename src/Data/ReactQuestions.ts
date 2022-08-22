@@ -155,7 +155,7 @@ export const questions: Question[] = [
   {
     id: 10,
     type: "multiple",
-    tags: ["react", "junior"],
+    tags: ["react", "junior", "components"],
     body: "Выберете правильное утверждение:",
     availableAnswer: [
       {
@@ -183,7 +183,7 @@ export const questions: Question[] = [
   {
     id: 11,
     type: "multiple",
-    tags: ["react", "junior"],
+    tags: ["react", "junior", "components"],
     body: "Выберете правильное(ые) утверждение:",
     availableAnswer: [
       {
@@ -211,7 +211,7 @@ export const questions: Question[] = [
   {
     id: 12,
     type: "boolean",
-    tags: ["react", "junior"],
+    tags: ["react", "junior", "jsx"],
     body: {
       type: "code snippet",
       content:
@@ -222,7 +222,7 @@ export const questions: Question[] = [
   {
     id: 13,
     type: "boolean",
-    tags: ["react", "junior"],
+    tags: ["react", "junior", "jsx"],
     body: {
       type: "code snippet",
       content:
@@ -233,7 +233,7 @@ export const questions: Question[] = [
   {
     id: 14,
     type: "single",
-    tags: ["react", "junior"],
+    tags: ["react", "junior", "jsx"],
     body: "Как встроить JS выражение в JSX? (expression - любое JS выражение)",
     availableAnswer: [
       { id: 1, content: "<h1>{expression}</h1>" },
@@ -253,7 +253,7 @@ export const questions: Question[] = [
   {
     id: 16,
     type: "single",
-    tags: ["junior", "react"],
+    tags: ["junior", "react", "state"],
     body: {
       type: "code snippet",
       content:
@@ -270,7 +270,7 @@ export const questions: Question[] = [
   {
     id: 17,
     type: "single",
-    tags: ["junior", "react"],
+    tags: ["junior", "react", "jsx"],
     body: {
       type: "code snippet",
       content:
@@ -287,7 +287,7 @@ export const questions: Question[] = [
   {
     id: 18,
     type: "single",
-    tags: ["react", "junior"],
+    tags: ["react", "junior", "state"],
     body: "Что такое состояние (state) компонента?",
     availableAnswer: [
       {
@@ -309,7 +309,7 @@ export const questions: Question[] = [
   {
     id: 19,
     type: "single",
-    tags: ["react", "junior"],
+    tags: ["react", "junior", "state", "hooks"],
     body: "Как объявить переменную состояния isCollapsed и проинициализировать ее значением “ложь”? (В контексте React Hooks API)",
     availableAnswer: [
       {
@@ -331,7 +331,7 @@ export const questions: Question[] = [
   {
     id: 20,
     type: "single",
-    tags: ["react", "junior"],
+    tags: ["react", "junior", "state", "hooks"],
     body: {
       type: "code snippet",
       content:
@@ -360,7 +360,7 @@ export const questions: Question[] = [
   {
     id: 21,
     type: "single",
-    tags: ["react", "junior"],
+    tags: ["react", "junior", "hooks"],
     body: "Что возвращает функция useState()?",
     availableAnswer: [
       { id: 1, content: "React Hook для создания переменной состояния" },
@@ -377,7 +377,7 @@ export const questions: Question[] = [
   {
     id: 22,
     type: "single",
-    tags: ["react", "junior"],
+    tags: ["react", "junior", "state", "hooks"],
     body: {
       type: "code snippet",
       content:
@@ -394,7 +394,7 @@ export const questions: Question[] = [
   {
     id: 23,
     type: "multiple",
-    tags: ["react", "junior"],
+    tags: ["react", "junior", "hooks"],
     body: "Какие аргументы принимает функция useState()? (Возможно, более одного ответа верные)",
     availableAnswer: [
       { id: 1, content: "Функцию, возвращающую начальное состояние" },
@@ -414,7 +414,7 @@ export const questions: Question[] = [
   {
     id: 24,
     type: "multiple",
-    tags: ["react", "junior"],
+    tags: ["react", "junior", "hooks"],
     body: "Какие аргументы принимает функция-сеттер переменной состояния? (Возможно, более одного ответа верные)",
     availableAnswer: [
       { id: 1, content: "1) старое состояние; 2) новое состояние" },
@@ -427,7 +427,7 @@ export const questions: Question[] = [
   {
     id: 25,
     type: "single",
-    tags: ["react", "junior"],
+    tags: ["react", "junior", "hooks"],
     body: "Если функция обновления возвращает такой же результат как и до обновления, то…",
     availableAnswer: [
       { id: 1, content: "React пропустит этот рендер" },
@@ -440,7 +440,7 @@ export const questions: Question[] = [
   {
     id: 26,
     type: "single",
-    tags: ["react", "junior"],
+    tags: ["react", "junior", "state", "hooks"],
     body: {
       type: "code snippet",
       content:
@@ -461,7 +461,7 @@ export const questions: Question[] = [
   {
     id: 27,
     type: "single",
-    tags: ["react", "junior"],
+    tags: ["react", "junior", "hooks"],
     body: {
       type: "code snippet",
       content:
@@ -478,7 +478,7 @@ export const questions: Question[] = [
   {
     id: 28,
     type: "single",
-    tags: ["react", "junior"],
+    tags: ["react", "junior", "events"],
     body: {
       type: "code snippet",
       content:
@@ -505,7 +505,7 @@ export const questions: Question[] = [
   {
     id: 29,
     type: "single",
-    tags: ["react", "junior"],
+    tags: ["react", "junior", "events"],
     body: {
       type: "code snippet",
       content:
@@ -521,7 +521,7 @@ export const questions: Question[] = [
   {
     id: 30,
     type: "single",
-    tags: ["react", "junior"],
+    tags: ["react", "junior", "jsx"],
     body: {
       type: "code snippet",
       content:
@@ -550,7 +550,7 @@ export const questions: Question[] = [
   {
     id: 31,
     type: "single",
-    tags: ["react", "junior"],
+    tags: ["react", "junior", "jsx"],
     body: {
       type: "code snippet",
       content:
@@ -567,7 +567,7 @@ export const questions: Question[] = [
   {
     id: 32,
     type: "single",
-    tags: ["react", "junior"],
+    tags: ["react", "junior", "components"],
     body: "Какой атрибут каждого из элементов коллекции при ее рендере используется React для определения, какие элементы были изменены, добавлены или удалены.",
     availableAnswer: [
       { id: 1, content: "key" },
@@ -580,7 +580,7 @@ export const questions: Question[] = [
   {
     id: 33,
     type: "single",
-    tags: ["react", "junior"],
+    tags: ["react", "junior", "components"],
     body: "Необходимое условие для значения атрибута ключа для элемента React это …",
     availableAnswer: [
       {
@@ -605,7 +605,7 @@ export const questions: Question[] = [
   {
     id: 34,
     type: "single",
-    tags: ["react", "junior"],
+    tags: ["react", "junior", "components"],
     body: "При извлечении компонента-члена коллекции следует его ключ… ",
     availableAnswer: [
       {
@@ -632,7 +632,7 @@ export const questions: Question[] = [
   {
     id: 35,
     type: "multiple",
-    tags: ["react", "junior"],
+    tags: ["react", "junior", "controlled components"],
     body: {
       type: "code snippet",
       content:
@@ -853,7 +853,7 @@ export const questions: Question[] = [
   {
     id: 45,
     type: "boolean",
-    tags: ["react"],
+    tags: ["react", "optimization"],
     body: {
       type: "code snippet",
       content:
@@ -864,7 +864,7 @@ export const questions: Question[] = [
   {
     id: 46,
     type: "multiple",
-    tags: ["react"],
+    tags: ["react", "context", "hooks"],
     body: "Как получить значение контекста с помощью хука useContext",
     availableAnswer: [
       { id: 1, content: "useContext(MyContext)" },
@@ -876,7 +876,7 @@ export const questions: Question[] = [
   {
     id: 47,
     type: "multiple",
-    tags: ["react"],
+    tags: ["react", "optimization"],
     body: {
       type: "code snippet",
       content:
@@ -894,7 +894,7 @@ export const questions: Question[] = [
   {
     id: 48,
     type: "single",
-    tags: ["react"],
+    tags: ["react", "optimization"],
     body: {
       type: "code snippet",
       content:
@@ -922,7 +922,7 @@ export const questions: Question[] = [
   {
     id: 49,
     type: "single",
-    tags: ["react"],
+    tags: ["react", "ref"],
     body: {
       type: "code snippet",
       content:
@@ -952,7 +952,7 @@ export const questions: Question[] = [
   {
     id: 50,
     type: "multiple",
-    tags: ["react"],
+    tags: ["react", "ref"],
     body: "Выберите правильное(ые) утверждения:",
     availableAnswer: [
       { id: 1, content: "Рефы дают возможность получить доступ к DOM-узлам" },
@@ -977,7 +977,7 @@ export const questions: Question[] = [
   {
     id: 51,
     type: "single",
-    tags: ["react"],
+    tags: ["react", "ref"],
     body: {
       type: "code snippet",
       content:
@@ -994,7 +994,7 @@ export const questions: Question[] = [
   {
     id: 52,
     type: "multiple",
-    tags: ["react"],
+    tags: ["react", "render-prop"],
     body: "Выберите правильное(ые) утверждения:",
     availableAnswer: [
       {
@@ -1023,7 +1023,7 @@ export const questions: Question[] = [
   {
     id: 53,
     type: "multiple",
-    tags: ["react"],
+    tags: ["react", "optimization"],
     body: {
       type: "code snippet",
       content:
@@ -1035,5 +1035,157 @@ export const questions: Question[] = [
       { id: 3, content: "DataPreviewMemo" },
     ],
     rightAnswer: [1, 2, 3],
+  },
+  {
+    id: 54,
+    type: "multiple",
+    tags: ["react", "strict mode"],
+    body: "Выберите верное(ые) утверждения",
+    availableAnswer: [
+      {
+        id: 1,
+        content:
+          "StrictMode — инструмент для обнаружения потенциальных проблем в приложении. (Использование небезопасных методов жизненного цикла,  устаревшего метода findDOMNode и т.д.)",
+      },
+      {
+        id: 2,
+        content:
+          "Этап рендеринга (render phase) - в нём реакт вносит изменения в DOM",
+      },
+      {
+        id: 3,
+        content: "Компонент <StrictMode> не рендерит видимого UI",
+      },
+      {
+        id: 4,
+        content:
+          "Компонент <StrictMode> нужно убирать в продакшен-билде, иначе это приведёт к лишней нагрузке",
+      },
+    ],
+    rightAnswer: [1, 3],
+  },
+  {
+    id: 55,
+    type: "multiple",
+    tags: ["react", "hooks"],
+    body: "Выберите верное(ые) утверждения",
+    availableAnswer: [
+      {
+        id: 1,
+        content:
+          "Нельзя вызывать хуки в циклах, условных операторов или вложенных фунцкиях.",
+      },
+      {
+        id: 2,
+        content:
+          "Название хука обязательно должно начинаться с use, иначе при рендере реакт выкинет исключение",
+      },
+      {
+        id: 3,
+        content:
+          "Пользовательские хуки - это скорее соглашение, нежели возможность самого реакта",
+      },
+      {
+        id: 4,
+        content: "Реакт полагается на порядок вызова хуков",
+      },
+    ],
+    rightAnswer: [1, 3, 4],
+  },
+  {
+    id: 56,
+    tags: ["react", "props"],
+    type: "single",
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * Что выведет приложение после 3 раз нажатия на кнопку\n */\nconst App = () => {\n  const [counter, setCounter] = useState(0);\n\n  return (\n    <>\n      <Component title="Hello" />\n      <button onClick={() => setCounter(counter + 1)}>Click</button>\n    </>\n  );\n};\n\nconst Component = ({ title }) => {\n  title += " World";\n\n  return <h1>{title}</h1>;\n};',
+    },
+    availableAnswer: [
+      {
+        id: 1,
+        content: "Hello World",
+      },
+      {
+        id: 2,
+        content: "Hello World World World",
+      },
+      {
+        id: 3,
+        content: "React выкинет исключение, так как нельзя изменять пропсы",
+      },
+      {
+        id: 4,
+        content: "Hello",
+      },
+    ],
+    rightAnswer: 1,
+  },
+  {
+    id: 57,
+    type: "single",
+    tags: ["react", "props"],
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * Какое текст выведится на экран?\n */\nconst App = () => {\n  const title = "Hello world";\n\n  return <Component title />;\n};\n\nconst Component = ({ title }) => {\n  return <div className="component">{title}</div>;\n};',
+    },
+    availableAnswer: [
+      { id: 1, content: "Hello world" },
+      { id: 2, content: "true" },
+      { id: 3, content: "[object Object]" },
+      { id: 4, content: "Пустой div" },
+    ],
+    rightAnswer: 4,
+  },
+  {
+    id: 58,
+    type: "single",
+    tags: ["react", "jsx"],
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * Что выведется на экран?\n */\nconst App = () => {\n  const text = "Дом&nbsp;&mdash; это родное место";\n\n  return <Component text={text} />;\n};\n\nconst Component = ({ text }) => {\n  return <div>{text}</div>;\n};',
+    },
+    availableAnswer: [
+      { id: 1, content: "Дом - это родное место" },
+      { id: 2, content: "Дом&nbsp;&mdash; это родное место" },
+      { id: 3, content: "[object Object]" },
+    ],
+    rightAnswer: 2,
+  },
+  {
+    id: 59,
+    type: "single",
+    tags: ["react", "props"],
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * Что выведится на экран?\n */\nconst App = () => {\n  const text1 = "Hello";\n  const text2 = "World";\n\n  return <Component text={text1} text={text2} />;\n};\n\nconst Component = ({ text }) => {\n  return <div>{text}</div>;\n};',
+    },
+    availableAnswer: [
+      { id: 1, content: "Hello" },
+      { id: 2, content: "World" },
+      { id: 3, content: "Реакт выкинет исключение" },
+      { id: 4, content: "HelloWorld" },
+    ],
+    rightAnswer: 2,
+  },
+  {
+    id: 60,
+    type: "single",
+    tags: ["react", "jsx"],
+    body: {
+      type: "code snippet",
+      content:
+        "/**\n * Что выведится на экран?\n */\nconst App = () => {\n  const date = new Date();\n\n  return <div>{date}</div>;\n};",
+    },
+    availableAnswer: [
+      { id: 1, content: "Текущая дата" },
+      { id: 2, content: "[object Date]" },
+      { id: 3, content: "Реакт выдаст исключение" },
+      { id: 4, content: "Пустой div" },
+    ],
+    rightAnswer: 3,
   },
 ];

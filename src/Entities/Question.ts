@@ -7,7 +7,15 @@ type Tag =
   | "junior++"
   | "context"
   | "fragment"
-  | "hooks";
+  | "hooks"
+  | "components"
+  | "state"
+  | "events"
+  | "controlled components"
+  | "optimization"
+  | "ref"
+  | "render-prop"
+  | "strict mode";
 
 type QuestionAnswer = {
   id: number;

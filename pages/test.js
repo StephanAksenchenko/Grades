@@ -1,3 +1,3 @@
-import App from "../src/Examples/RenderProps/Example1";
+import App from "../src/Examples/Props/Example5";
 
 export default App;
