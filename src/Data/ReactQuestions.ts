@@ -1067,7 +1067,7 @@ export const questions: Question[] = [
   {
     id: 55,
     type: "multiple",
-    tags: ["react", "hooks", "junior+"],
+    tags: ["react", "hooks", "junior++"],
     body: "Выберите верное(ые) утверждения",
     availableAnswer: [
       {
@@ -1263,5 +1263,52 @@ export const questions: Question[] = [
       { id: 4, content: "Нельзя вызывать хуки внутри обычных JS функций" },
     ],
     rightAnswer: 3,
+  },
+  {
+    id: 65,
+    type: "single",
+    tags: ["react", "hooks", "senior"],
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * Найдите проблему в данном коде?\n */\nconst UserContext = createContext({});\n\nconst UserProvider = ({ children }) => {\n  const [state, setState] = useState({\n    name: "user",\n  });\n\n  return (\n    <UserContext.Provider value={{ state, setState }}>\n      {children}\n    </UserContext.Provider>\n  );\n};\n\nconst useUser = () => {\n  const { state, setState } = useContext(UserContext);\n\n  const changeName = (name) => {\n    setState((prevState) => ({\n      ...prevState,\n      name,\n    }));\n  };\n\n  return {\n    changeName,\n    state,\n  };\n};\n\nconst App = () => {\n  return (\n    <UserProvider>\n      <Auth />\n      <Avatar />\n    </UserProvider>\n  );\n};\n\nconst Auth = () => {\n  const { changeName, state } = useUser();\n  const loading = useRef(false);\n\n  useEffect(() => {\n    const login = async () => {\n      if (loading.current) {\n        return;\n      }\n\n      loading.current = true;\n      const user = await auth();\n      changeName(user);\n    };\n\n    login();\n\n    return () => (loading.current = false);\n  }, [changeName, loading, state.name]);\n\n  return null;\n};\n\nconst Avatar = () => {\n  const { state } = useUser();\n  return <h1>Hello, {state.name}</h1>;\n};',
+    },
+    availableAnswer: [
+      {
+        id: 1,
+        content:
+          "В компоненте Avatar state будет undefined, что вызовет исключение",
+      },
+      {
+        id: 2,
+        content: "Компонент Auth будет вызывать бесконечные перерендеры",
+      },
+      {
+        id: 3,
+        content: "Компонент Auth будет дважды вызывать процесс авторизации",
+      },
+      {
+        id: 4,
+        content: "В коде всё нормально",
+      },
+    ],
+    rightAnswer: 2,
+  },
+  {
+    id: 66,
+    type: "multiple",
+    tags: ["react", "hooks", "senior+"],
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * Есть ли в баг в коде?\n */\nfunction useFetch(url, options) {\n  const cache = useRef({});\n  const cancelRequest = useRef(false);\n\n  const initialState = {\n    error: undefined,\n    data: undefined,\n  };\n\n  const fetchReducer = (state, action) => {\n    switch (action.type) {\n      case "loading":\n        return { ...initialState };\n      case "fetched":\n        return { ...initialState, data: action.payload };\n      case "error":\n        return { ...initialState, error: action.payload };\n      default:\n        return state;\n    }\n  };\n\n  const [state, dispatch] = useReducer(fetchReducer, initialState);\n\n  useEffect(() => {\n    if (!url) {\n      return;\n    }\n\n    cancelRequest.current = false;\n\n    const fetchData = async () => {\n      dispatch({ type: "loading" });\n\n      if (cache.current[url]) {\n        dispatch({ type: "fetched", payload: cache.current[url] });\n        return;\n      }\n\n      try {\n        const response = await fetch(url, options);\n\n        if (!response.ok) {\n          throw new Error(response.statusText);\n        }\n\n        const data = await response.json();\n        cache[url] = data;\n\n        if (cancelRequest.current) {\n          return;\n        }\n\n        dispatch({ type: "fetched", payload: data });\n      } catch (error) {\n        if (cancelRequest.current) {\n          return;\n        }\n        dispatch({ type: "error", payload: error });\n      }\n    };\n\n    fetchData();\n\n    return () => (cancelRequest.current = true);\n  }, [options, url]);\n\n  return state;\n}\n\nconst App = () => {\n  const result = useFetch(\n    "https://mocki.io/v1/178f9877-caa1-4fa6-8d2b-53d3229b9a07",\n    { headers: { "Content-Type": "application/json" } }\n  );\n\n  return null;\n};',
+    },
+    availableAnswer: [
+      { id: 1, content: "Бесконечный перерендер" },
+      { id: 2, content: "Неправильная работа кеширование" },
+      { id: 3, content: "Неправильная работа прерывания запросов" },
+      { id: 4, content: "Неправильная работа редюсера" },
+    ],
+    rightAnswer: [1, 2],
   },
 ];

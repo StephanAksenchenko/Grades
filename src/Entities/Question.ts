@@ -8,6 +8,8 @@ type Tag =
   | "middle"
   | "middle+"
   | "middle++"
+  | "senior"
+  | "senior+"
   | "context"
   | "fragment"
   | "hooks"
