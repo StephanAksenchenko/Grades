@@ -1267,7 +1267,7 @@ export const questions: Question[] = [
   {
     id: 65,
     type: "single",
-    tags: ["react", "hooks", "senior"],
+    tags: ["react", "hooks", "senior+"],
     body: {
       type: "code snippet",
       content:
@@ -1297,7 +1297,7 @@ export const questions: Question[] = [
   {
     id: 66,
     type: "multiple",
-    tags: ["react", "hooks", "senior+"],
+    tags: ["react", "hooks", "senior++"],
     body: {
       type: "code snippet",
       content:
@@ -1310,5 +1310,37 @@ export const questions: Question[] = [
       { id: 4, content: "Неправильная работа редюсера" },
     ],
     rightAnswer: [1, 2],
+  },
+  {
+    id: 67,
+    type: "single",
+    tags: ["react", "hooks", "senior"],
+    body: {
+      type: "code snippet",
+      content:
+        "/**\n * Есть ли проблемы в данном коде?\n */\nfunction useTimeout(callback, delay) {\n  const savedCallback = useRef(callback);\n\n  useEffect(() => {\n    savedCallback.current = callback;\n\n    if (!delay && delay !== 0) {\n      return;\n    }\n\n    const id = setTimeout(() => savedCallback.current(), delay);\n    return () => clearTimeout(id);\n  }, [callback, delay]);\n}\n\nconst App = () => {\n  const [visible, setVisible] = useState(true);\n  const hide = () => setVisible(false);\n  const show = () => setVisible(true);\n\n  useTimeout(hide, 5000);\n\n  return (\n    <>\n      {visible && <div>Visible</div>}\n      <button onClick={show}>Show</button>\n    </>\n  );\n};",
+    },
+    availableAnswer: [
+      {
+        id: 1,
+        content:
+          "Обновление рефа внутри useEffect будет вызывать бесконечные перерендеры",
+      },
+      {
+        id: 2,
+        content:
+          "Передача в useTimeout не мемоизированного callback будет вызывать бесконечный перерендер",
+      },
+      {
+        id: 3,
+        content:
+          "Вызов callback внутри setTimeout с изменением состояния компонента будет вызывать бесконечный перерендер",
+      },
+      {
+        id: 4,
+        content: "Всё в порядке",
+      },
+    ],
+    rightAnswer: 4,
   },
 ];

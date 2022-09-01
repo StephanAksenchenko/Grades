@@ -10,6 +10,7 @@ type Tag =
   | "middle++"
   | "senior"
   | "senior+"
+  | "senior++"
   | "context"
   | "fragment"
   | "hooks"
