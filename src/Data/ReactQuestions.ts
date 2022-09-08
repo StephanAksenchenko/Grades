@@ -649,7 +649,7 @@ export const questions: Question[] = [
   {
     id: 36,
     type: "multiple",
-    tags: ["react", "context"],
+    tags: ["react", "context", "junior+"],
     body: "Выберите верное(ые) утверждения:",
     availableAnswer: [
       {
@@ -678,7 +678,7 @@ export const questions: Question[] = [
   {
     id: 37,
     type: "single",
-    tags: ["react", "context"],
+    tags: ["react", "context", "junior++"],
     body: {
       type: "code snippet",
       content:
@@ -693,7 +693,7 @@ export const questions: Question[] = [
   {
     id: 38,
     type: "multiple",
-    tags: ["react", "context"],
+    tags: ["react", "context", "senior++"],
     body: {
       type: "code snippet",
       content:
@@ -710,7 +710,7 @@ export const questions: Question[] = [
   {
     id: 39,
     type: "single",
-    tags: ["react", "context"],
+    tags: ["react", "context", "senior"],
     body: {
       type: "code snippet",
       content:
@@ -727,11 +727,11 @@ export const questions: Question[] = [
   {
     id: 40,
     type: "single",
-    tags: ["react", "context"],
+    tags: ["react", "context", "middle+"],
     body: {
       type: "code snippet",
       content:
-        '/**\n * App отрисовывает два счётчика, у которых есть span,\n * для отображения значения счётчика и есть кнопка, увеличивающая значение счётчиа на один.\n * Если у каждого счётчика нажать один раз кнопку Increment, каковы будут значения счётчиков\n */\nconst Context = createContext("value");\n\nconst App = () => {\n  return (\n    <>\n      <Counter />\n      <Counter />\n    </>\n  );\n};\n\nconst Counter = () => {\n  const [state, setState] = useState(0);\n  const increment = () => setState(state + 1);\n\n  return (\n    <>\n      <Context.Provider value={{ state, setState }}>\n        <Context.Consumer>\n          {(value) => <span>{value.state}</span>}\n        </Context.Consumer>\n      </Context.Provider>\n      <button onClick={increment}>Increment</button>\n    </>\n  );\n};',
+        '/**\n * App отрисовывает два счётчика, у которых есть span,\n * для отображения значения счётчика и есть кнопка, увеличивающая значение счётчика на один.\n * Если у каждого счётчика нажать один раз кнопку Increment, каковы будут значения счётчиков\n */\nconst Context = createContext("value");\n\nconst App = () => {\n  return (\n    <>\n      <Counter />\n      <Counter />\n    </>\n  );\n};\n\nconst Counter = () => {\n  const [state, setState] = useState(0);\n  const increment = () => setState(state + 1);\n\n  return (\n    <>\n      <Context.Provider value={{ state, setState }}>\n        <Context.Consumer>\n          {(value) => <span>{value.state}</span>}\n        </Context.Consumer>\n      </Context.Provider>\n      <button onClick={increment}>Increment</button>\n    </>\n  );\n};',
     },
     availableAnswer: [
       {
@@ -759,7 +759,7 @@ export const questions: Question[] = [
   {
     id: 41,
     type: "multiple",
-    tags: ["react", "context"],
+    tags: ["react", "context", "middle"],
     body: "Выберите верное(ые) утверждение:",
     availableAnswer: [
       {
@@ -771,6 +771,15 @@ export const questions: Question[] = [
         id: 2,
         content:
           "Объекту Context можно задать строковое свойство displayName. React DevTools использует это свойство при отображении названии контекста",
+      },
+      {
+        id: 3,
+        content:
+          "Чтобы получить значение из Context, можно использовать компонент Сontext.Consumption",
+      },
+      {
+        id: 4,
+        content: "В контексте можно хранить только примитивные значения",
       },
     ],
     rightAnswer: [1, 2],
@@ -870,6 +879,7 @@ export const questions: Question[] = [
       { id: 1, content: "useContext(MyContext)" },
       { id: 2, content: "useContext(MyContext.Consumer)" },
       { id: 3, content: "useContext(MyContext.Provider)" },
+      { id: 4, content: "useContext(MyContext.value)" },
     ],
     rightAnswer: [1],
   },
@@ -922,7 +932,7 @@ export const questions: Question[] = [
   {
     id: 49,
     type: "single",
-    tags: ["react", "ref"],
+    tags: ["react", "ref", "middle++"],
     body: {
       type: "code snippet",
       content:
@@ -952,7 +962,7 @@ export const questions: Question[] = [
   {
     id: 50,
     type: "multiple",
-    tags: ["react", "ref"],
+    tags: ["react", "ref", "junior"],
     body: "Выберите правильное(ые) утверждения:",
     availableAnswer: [
       { id: 1, content: "Рефы дают возможность получить доступ к DOM-узлам" },
@@ -977,7 +987,7 @@ export const questions: Question[] = [
   {
     id: 51,
     type: "single",
-    tags: ["react", "ref"],
+    tags: ["react", "ref", "junior++"],
     body: {
       type: "code snippet",
       content:
@@ -1342,5 +1352,76 @@ export const questions: Question[] = [
       },
     ],
     rightAnswer: 4,
+  },
+  {
+    id: 68,
+    type: "single",
+    tags: ["react", "context", "senior+"],
+    body: {
+      type: "code snippet",
+      content:
+        "/**\n * Какое будет значение контекста если нажать Increase?\n */\nconst GlobalContext = createContext({ count: 0 });\nconst LocalContext = createContext({ count: 0 });\n\nconst App = () => {\n  const [count, setCount] = useState(0);\n  const increaseByTwo = () => setCount((p) => p + 2);\n\n  return (\n    <GlobalContext.Provider value={{ count, setCount }}>\n      <GlobalContext.Consumer>\n        {({ count, setCount }) => (\n          <LocalComp count={count} setCount={setCount} />\n        )}\n      </GlobalContext.Consumer>\n      <button onClick={increaseByTwo}>IncreaseByTwo</button>\n    </GlobalContext.Provider>\n  );\n};\n\nconst LocalComp = ({ count, setCount }) => {\n  const increase = () => setCount((p) => p + 1);\n\n  return (\n    <LocalContext.Provider value={{ count, increase }}>\n      <LocalContext.Consumer>\n        {({ count, increase }) => (\n          <>\n            <div>{count}</div>\n            <button onClick={increase}>Increase</button>\n          </>\n        )}\n      </LocalContext.Consumer>\n    </LocalContext.Provider>\n  );\n};",
+    },
+    availableAnswer: [
+      { id: 1, content: "Global: 0, Local: 0" },
+      {
+        id: 2,
+        content: "Global: 0, Local: 1",
+      },
+      {
+        id: 3,
+        content: "Global: 1, Local: 1",
+      },
+      {
+        id: 4,
+        content: "Ошибка",
+      },
+    ],
+    rightAnswer: 3,
+  },
+  {
+    id: 69,
+    type: "single",
+    tags: ["react", "context", "middle++"],
+    body: {
+      type: "code snippet",
+      content:
+        "/**\n * Какие значения будут внутри h1, при перерендере?\n */\nconst Context = createContext();\n\nconst App = () => {\n  const value = Math.random();\n  const [count, setCount] = useState(0);\n  const increase = () => setCount((p) => p + 1);\n\n  return (\n    <Context.Provider value={value}>\n      <Context.Consumer>{(value) => <h1>{value}</h1>}</Context.Consumer>\n\n      <button onClick={increase}>Increase</button>\n    </Context.Provider>\n  );\n};",
+    },
+    availableAnswer: [
+      { id: 1, content: "каждый раз новое" },
+      { id: 2, content: "каждый раз одно и то же" },
+      {
+        id: 3,
+        content:
+          "реакт вызовет ошибку так как нельзя обновлять value таким образом",
+      },
+      {
+        id: 4,
+        content: "реакт вызовет ошибку так как value должен быть объектом",
+      },
+    ],
+    rightAnswer: 1,
+  },
+  {
+    id: 70,
+    type: "single",
+    tags: ["react", "ref", "middle+"],
+    body: {
+      type: "code snippet",
+      content:
+        "/**\n * Есть ли в данном коде ошибка?\n */\nconst App = () => {\n  const ref = useRef();\n\n  return <Component ref={ref} />;\n};\n\nexport default App;\n\nconst Component = forwardRef(({ ref }) => {\n  return <h1 ref={ref}>Hello</h1>;\n});\n",
+    },
+    availableAnswer: [
+      { id: 1, content: "Да, необходимо задать начальное значение в useRef" },
+      {
+        id: 2,
+        content:
+          "В функциональные компоненты нельзя передавать рефы, только в классовые",
+      },
+      { id: 3, content: "Неправильно использование рефа в Component" },
+      { id: 4, content: "В этом коде нет ошибок" },
+    ],
+    rightAnswer: 3,
   },
 ];
