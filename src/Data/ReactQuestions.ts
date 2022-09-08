@@ -962,7 +962,7 @@ export const questions: Question[] = [
   {
     id: 50,
     type: "multiple",
-    tags: ["react", "ref", "junior"],
+    tags: ["react", "ref", "junior+"],
     body: "Выберите правильное(ые) утверждения:",
     availableAnswer: [
       { id: 1, content: "Рефы дают возможность получить доступ к DOM-узлам" },
@@ -1423,5 +1423,51 @@ export const questions: Question[] = [
       { id: 4, content: "В этом коде нет ошибок" },
     ],
     rightAnswer: 3,
+  },
+  {
+    id: 71,
+    type: "single",
+    tags: ["react", "ref", "junior"],
+    body: "Как создать реф внутри функционального компонента",
+    availableAnswer: [
+      { id: 1, content: "React.createRef()" },
+      { id: 2, content: "React.useRef()" },
+      { id: 3, content: "React.forwartRef()" },
+      {
+        id: 4,
+        content: "Внутри функциональных компонентов нельзя создать реф",
+      },
+    ],
+    rightAnswer: 2,
+  },
+  {
+    id: 72,
+    type: "single",
+    tags: ["react", "ref", "middle"],
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * Есть ли в данном коде ошибка\n */\nconst App = () => {\n  const ref = useRef();\n\n  const retriveData = () => {\n    console.dir(ref.current.dataset.title);\n  };\n\n  return (\n    <>\n      <Component ref={ref} />\n      <button onClick={retriveData}>Retrive</button>\n    </>\n  );\n};\n\nconst Component = forwardRef((props, ref) => {\n  return (\n    <h1 ref={ref} data-title="Very interesting">\n      Hello\n    </h1>\n  );\n});',
+    },
+    availableAnswer: [
+      {
+        id: 1,
+        content: "Код рабочий",
+      },
+      {
+        id: 2,
+        content: "Вместо data-title нужно использовать dataTitle",
+      },
+      {
+        id: 3,
+        content: "Рефы нельзя использовать в функциональных компонентах",
+      },
+      {
+        id: 4,
+        content:
+          "Неправильно используется forwardRef, нужно forwardRef((prop) => {/*код компонента*/}, ref)",
+      },
+    ],
+    rightAnswer: 1,
   },
 ];
