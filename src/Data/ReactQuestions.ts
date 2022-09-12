@@ -1470,4 +1470,48 @@ export const questions: Question[] = [
     ],
     rightAnswer: 1,
   },
+  {
+    id: 73,
+    type: "single",
+    tags: ["react", "senior+", "ref"],
+    body: {
+      type: "code snippet",
+      content:
+        "/**\n * Какое значение будет выведено внутри PreviousValue\n * после двух нажатий на кнопку Increase\n */\nconst App = () => {\n  const prevValue = useRef(0);\n\n  return (\n    <>\n      <PreviousValue value={prevValue.current} />\n      <Counter ref={prevValue} />\n    </>\n  );\n};\n\nconst PreviousValue = ({ value }) => <div>Previous value: {value}</div>;\n\nconst Counter = forwardRef((_, prevValue) => {\n  const [value, setValue] = useState(0);\n\n  const increase = () => {\n    prevValue.current = value;\n    setValue(value + 1);\n  };\n\n  return (\n    <>\n      <div>CurrentValue: {value}</div>\n      <button onClick={increase}>Increase</button>\n    </>\n  );\n});",
+    },
+    availableAnswer: [
+      { id: 1, content: "0" },
+      { id: 2, content: "1" },
+      { id: 3, content: "2" },
+      { id: 4, content: "React вызовет исключение" },
+    ],
+    rightAnswer: 1,
+  },
+  {
+    id: 74,
+    type: "single",
+    tags: ["react", "senior", "ref"],
+    body: {
+      type: "code snippet",
+      content:
+        '/**\n * Будет ли данный код работать корректно.\n * При нажании на кнопку Logout, показываем, что пользователь "user"?\n */\nfunction useForceUpdate() {\n  const [value, setValue] = useState(0);\n  const update = () => setValue(value + 1);\n  return update;\n}\n\nconst UserContext = createContext("user");\n\nconst App = () => {\n  const user = useRef("Bob");\n  const setUser = (name) => {\n    user.current = name;\n  };\n\n  return (\n    <UserContextProvider user={{ user, setUser }}>\n      <Avatar />\n    </UserContextProvider>\n  );\n};\n\nconst UserContextProvider = ({ user, children }) => {\n  return <UserContext.Provider value={user}>{children}</UserContext.Provider>;\n};\n\nconst Avatar = () => {\n  const { user, setUser } = useContext(UserContext);\n  const update = useForceUpdate();\n\n  const logout = () => {\n    setUser("user");\n    update();\n  };\n\n  return (\n    <>\n      <h1>{user.current}</h1>\n      <button onClick={logout}>Logout</button>\n    </>\n  );\n};',
+    },
+    availableAnswer: [
+      { id: 1, content: "Да, всё ок" },
+      {
+        id: 2,
+        content: "Нет, изменение рефа, не вызывает обновление интерфейса",
+      },
+      {
+        id: 3,
+        content: "Нет, хук useForceUpdate работает не правильно",
+      },
+      {
+        id: 4,
+        content:
+          "Нет, контекст будет хранить одну и ту же ссылку value и обновляться не будет",
+      },
+    ],
+    rightAnswer: 1,
+  },
 ];

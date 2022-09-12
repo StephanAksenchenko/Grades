@@ -1,3 +1,3 @@
-import App from "../src/Examples/Refs/Example4";
+import App from "../src/Examples/Refs/Example6";
 
 export default App;
