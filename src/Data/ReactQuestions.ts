@@ -1514,4 +1514,44 @@ export const questions: Question[] = [
     ],
     rightAnswer: 1,
   },
+  {
+    id: 75,
+    type: "multiple",
+    tags: ["react", "senior++", "ref"],
+    body: {
+      type: "code snippet",
+      content:
+        "/**\n * Как исправить данный код?\n * Нажимая на кнопку Next показывается след слайд\n */\nconst Services = createContext({});\nconst App = () => {\n  const sliderRef = useRef(null);\n  const slides = [1, 2, 3];\n\n  return (\n    <Services.Provider\n      value={{\n        slider: sliderRef.current, // 1\n      }}\n    >\n      <Slider slides={slides} ref={sliderRef} />\n      <DeepComponent />\n    </Services.Provider>\n  );\n};\n\n// 2\nconst Slider = forwardRef(({ slides }, ref) => {\n  const [current, setCurrent] = useState(0);\n\n  // 3\n  useImperativeHandle(ref.current, () => ({\n    // 4\n    next: () => setCurrent((p) => (p + 1 === slides.length ? 0 : p + 1)),\n  }));\n\n  return <div>{slides[current]}</div>;\n});\n\nconst DeepComponent = () => {\n  const { slider } = useContext(Services);\n\n  const onNextClick = () => {\n    // 5\n    const { next } = slider;\n    next();\n  };\n\n  return <button onClick={onNextClick}>Next</button>;\n};",
+    },
+    availableAnswer: [
+      {
+        id: 1,
+        content: "[1] Нужно заменить на slider: () => sliderRef.current",
+      },
+      {
+        id: 2,
+        content:
+          "[2] Нужно заменить const Slider = forwardRef(({slides, ref}) => { func body })",
+      },
+      {
+        id: 3,
+        content:
+          "[3] Нужно заменить на useImperativeHandle(ref, () => ({ object })",
+      },
+      {
+        id: 4,
+        content:
+          "[4] Нужно заменить на next: () => setCurrent(current + 1 === slides.length ? 0 : current + 1)",
+      },
+      {
+        id: 5,
+        content: "[5] Нужно заменить на const { next } = slider();",
+      },
+      {
+        id: 6,
+        content: "Код рабочий!",
+      },
+    ],
+    rightAnswer: [1, 3, 5],
+  },
 ];
