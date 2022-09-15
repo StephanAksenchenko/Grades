@@ -21,7 +21,8 @@ type Tag =
   | "optimization"
   | "ref"
   | "render-prop"
-  | "strict mode";
+  | "strict mode"
+  | "portals";
 
 type QuestionAnswer = {
   id: number;
